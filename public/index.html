@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Fullstack app</title>
+</head>
+
+<body>
+
+  <div class="auth">
+    <div class="login">
+      <h1>Login to your account</h1>
+      <input type="text" class="username" placeholder="user">
+      <input type="text" class="password" placeholder="password">
+      <div>
+        <button class="log-button">submit</button>
+        <h2 class="incorrect inactive">Incorrect password ❌</h2>
+        <h2 class="not-found inactive">User not found ❓</h2>
+      </div>
+    </div>
+    <button class="in-log">sign up</button>
+
+    <div class="sign inactive">
+      <h1>Create your account</h1>
+      <input type="text" class="username" placeholder="user">
+      <input type="text" class="password" placeholder="password">
+      <button class="sign-button">submit</button>
+    </div>
+    <button class="in-sign inactive">log in</button>
+  </div>
+  <script>
+    let inSignBtn = document.querySelector('.in-sign')
+    let inLogBtn = document.querySelector('.in-log')
+
+    let signState = document.querySelector('.sign')
+    let logState = document.querySelector('.login')
+
+    inSignBtn.addEventListener("click", () => {
+      signState.classList.add('inactive')
+      logState.classList.remove('inactive')
+      inSignBtn.classList.add('inactive')
+      inLogBtn.classList.remove('inactive')
+    })
+
+    inLogBtn.addEventListener("click", () => {
+      signState.classList.remove('inactive')
+      logState.classList.add('inactive')
+      inLogBtn.classList.add('inactive')
+      inSignBtn.classList.remove('inactive')
+    })
+
+    let logButton = document.querySelector('.log-button')
+    let signButton = document.querySelector('.sign-button')
+    let usernameSign = document.querySelector('.sign .username')
+    let passwordSign = document.querySelector('.sign .password')
+    let usernameLog = document.querySelector('.login .username')
+    let passwordLog = document.querySelector('.login .password')
+    let incorrect = document.querySelector('.auth .incorrect')
+    let notFound = document.querySelector('.auth .not-found')
+
+    logButton.addEventListener('click', async () => {
+      const username = usernameLog.value
+      const password = passwordLog.value
+
+      try {
+        const response = await fetch('/auth/log', {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json'
+          },
+          body: JSON.stringify({ username, password })
+        })
+
+        if (!response.ok) {
+          throw new Error('Login failed: ' + response.statusText);
+        }
+
+        const data = await response.json()
+        console.log(data, "100%")
+
+        if (data === "ok") {
+          window.location.replace("/dashboard")
+          return;
+        } if (data === "incorrect") {
+          incorrect.classList.remove("inactive")
+          notFound.classList.add("inactive")
+        } else {
+          notFound.classList.remove("inactive")
+          incorrect.classList.add("inactive")
+        }
+
+      } catch (err) {
+        console.log("Error:", err)
+      }
+    })
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,95 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body{
+  background-color: rgb(7, 11, 29);
+  color: white;
+}
+
+.auth{
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.login, .sign{
+  display: flex;
+  justify-content: space-between;
+  align-items:  center;
+  flex-direction: column;
+  height: 60vh;
+  width: 70%;
+  padding-bottom: 30px;
+  border-bottom: 2px solid gray;
+}
+
+.auth h1{
+  font-family: sans-serif;
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.auth input{
+  width: 400px;
+  height: 45px;
+  border-radius: 10px;
+  outline: none;
+  padding: 10px;
+  border: 1px solid rgb(35, 35, 225);
+  color: white;
+  background-color: rgb(7, 11, 29);
+  font-size: 20px;
+  font-weight: 100;
+  font-family: sans-serif;
+}
+
+.auth button{
+  width: 100px;
+  height: 45px;
+  border-radius: 10px;
+  outline: none;
+  padding: 10px;
+  background-color: rgb(35, 35, 225);
+  border: 2px solid rgb(35, 35, 225);
+  color: white;
+  font-family: sans-serif;
+  font-size: 20px;
+  font-weight: 100;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.auth button:hover{
+  background-color: rgb(7, 11, 29);
+}
+
+.auth .in-log,.auth .in-sign{
+  background-color: rgb(7, 11, 29);
+  border: 2px solid rgb(35, 35, 225);
+  align-self: flex-end;
+  margin-right: 20%;
+  margin-top: 25px;
+}
+
+.auth .in-log:hover,.auth .in-sign:hover{
+  color: rgb(35, 35, 225);
+}
+
+.login div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100px;
+}
+
+.inactive{
+  display: none;
+}
+
