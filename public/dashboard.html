@@ -4,12 +4,164 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="dashboard.css">
-  <title>Dashboard</title>
+
+  <meta name="description"
+    content="Portfolio of Yousef Fathy - Front-end Developer & UI Designer. Explore my projects, services, and contact me for modern responsive web development.">
+
+  <meta name="keywords"
+    content="Yousef Fathy, Front-end Developer, UI Designer, Portfolio, Web Development, Responsive Websites, HTML, CSS, JavaScript, Projects, Services">
+
+  <meta name="author" content="Yousef Fathy">
+
+  <meta name="robots" content="index, follow">
+
+
+  <link rel="preload" href="images/logo.png" as="image">
+  <link rel="preload" href="images/robot.png" as="image">
+
+  <link rel="icon" href="images/logo-cropped.png">
+  <title>Yousef's Portfolio</title>
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="css/dashboard.css">
 </head>
 
 <body>
 
+  <header class="navbar">
+    <div class="container">
+      <div class="logo">
+        <img src="images/logo.png" alt="My Logo">
+      </div>
+      <div class="nav-links">
+        <i class="fa-solid fa-bars"></i>
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact Me</a>
+      </div>
+    </div>
+  </header>
+
+  <section class="landing">
+    <div class="container">
+      <div class="links-con-mobile">
+        <a href="#services">Services</a>
+        <a href="#projects">Projects</a>
+        <a href="#contact">Contact Me</a>
+      </div>
+      <div class="left-section">
+        <h2>Hello, it’s Me </h2>
+        <h1>Yousef Fathy</h1>
+        <p>Front-end Developer / UI Designer</p>
+        <div class="social-links">
+          <a href="https://www.linkedin.com/in/yousef-fathy-742464304/?locale=en_US" target="_blank"
+            rel="noopener noreferrer"><i class="fa-brands fa-linkedin"></i></a>
+          <a href="https://www.facebook.com/share/19NwWuipP6/?mibextid=wwXIfr" target="_blank"
+            rel="noopener noreferrer"><i class="fa-brands fa-facebook"></i></a>
+          <a href="https://www.instagram.com/you7ef_fathy?igsh=b2R6aHVmeGd1aTI0&utm_source=qr" target="_blank"
+            rel="noopener noreferrer"><i class="fa-brands fa-instagram"></i></a>
+          <a href="https://github.com/yousef2662" target="_blank" rel="noopener noreferrer"><i
+              class="fa-brands fa-github"></i></a>
+        </div>
+      </div>
+      <div class="right-section">
+        <img src="images/robot.png" alt="Robot" class="robot">
+      </div>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="container">
+      <h1 class="main-h">Our <span>Services</span></h1>
+      <div class="slider">
+        <div class="card card1">
+          <i class="fa-solid fa-laptop-code"></i>
+          <h1>Creating responsive websites</h1>
+          <p>We create responsive websites using Html,Css and javaScript in an effectve way that makes the code run fast
+            and with no wrongs.</p>
+        </div>
+        <div class="card card2">
+          <i class="fa-solid fa-gear"></i>
+          <h1>Editing and dealing with websites</h1>
+          <p>We edit your code and improve it using the latest and the fastest codes even if we didn't creat it.</p>
+        </div>
+        <div class="card card3">
+          <i class="fa-solid fa-camera"></i>
+          <h1>Previewing your website</h1>
+          <p>We prewiew and evaluate your code giving you tips in how to improve it and this moves your level to a
+            higher level.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="projects" class="projects">
+    <div class="container">
+      <h1 class="main-h">Our <span>Projects</span></h1>
+      <div class="pro-container">
+        <div class="pro-card">
+          <a href="https://yousef2662.github.io/wd.digitals/" target="_blank" rel="noopener noreferrer">
+            <img src="images/wd.png" alt="Protofolio of a company" loading="lazy">
+
+            <div class="description">
+              <h1>WD.digitals Website</h1>
+              <p>This website was one of the first websites we built. We designed it to be modern and suitable for our
+                customers. We also implemented a login method in it, which was our first time using one.</p>
+              <i class="fa-solid fa-computer-mouse"></i>
+            </div>
+          </a>
+        </div>
+        <div class="pro-card">
+          <a href="https://yousef2662.github.io/honey-market/" target="_blank" rel="noopener noreferrer">
+            <img src="images/hm.png" alt="Honey Market" loading="lazy">
+
+            <div class="description">
+              <h1>Honey Market</h1>
+              <p>This market was our first time to build a one. We designed it to be modern and suitable for our
+                customers. We also implemented a search method in it, which was our first time using a one.</p>
+              <i class="fa-solid fa-computer-mouse"></i>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="conatct" id="contact">
+    <div class="container">
+      <h1 class="main-c">Contact <span>Me?</span></h1>
+      <form action="https://formsubmit.co/c4e11586516ae2e45de5bd95c4947f50" method="post">
+        <input type="hidden" name="_next" value="https://yousef2662.github.io/My-web/thanks.html">
+        <input type="hidden" name="_captcha" value="false">
+        <!-- ----------- -->
+        <div class="con-container">
+          <div class="first-row row">
+            <input type="text" name="first_name" placeholder="First Name" required>
+            <input type="text" name="second_name" placeholder="Second Name" required>
+          </div>
+          <div class="second-row row">
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="text" name="number" placeholder="Number">
+          </div>
+          <div class="third-row">
+            <textarea name="message" placeholder="What You Want?" required></textarea>
+          </div>
+          <button type="submit" class="send"><i class="fa-solid fa-paper-plane"></i> Send</button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="copy-developed">
+      <span class="span-bra">&lt;</span> Developed by <span class="span-bra">&gt;</span><a
+        href="https://www.facebook.com/share/19NwWuipP6/?mibextid=wwXIfr" target="_blank"
+        rel="noopener noreferrer">Yousef</a><span class="span-dis"><br></span><span class="span-bra">&lt;</span> All
+      Copy Rights Reserved ©2025 <span class="span-bra">&gt;</span>
+    </div>
+  </footer>
+
+  <script src="js/all.min.js"></script>
+  <script src="js/dashboard.js"></script>
 </body>
 
 </html>

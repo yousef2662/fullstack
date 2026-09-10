@@ -4,7 +4,23 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
+
+  <meta name="description"
+    content="Portfolio of Yousef Fathy - Front-end Developer & UI Designer. Explore my projects, services, and contact me for modern responsive web development.">
+
+  <meta name="keywords"
+    content="Yousef Fathy, Front-end Developer, UI Designer, Portfolio, Web Development, Responsive Websites, HTML, CSS, JavaScript, Projects, Services">
+
+  <meta name="author" content="Yousef Fathy">
+
+  <meta name="robots" content="index, follow">
+
+
+  <link rel="preload" href="images/logo.png" as="image">
+
+  <link rel="icon" href="images/logo-cropped.png">
+  <link rel="stylesheet" href="css/all.min.css">
+  <link rel="stylesheet" href="./css/style.css">
   <title>Fullstack app</title>
 </head>
 
@@ -12,11 +28,18 @@
 
   <div class="auth">
     <div class="login">
-      <h1>Login to your account</h1>
-      <input type="text" class="username" placeholder="user">
-      <input type="text" class="password" placeholder="password">
+      <h1><span>Login</span> to your account</h1>
       <div>
-        <button class="log-button">submit</button>
+        <input type="email" class="username" placeholder="email">
+        <h2 class="emailReqLog inactive">Email required with '@' included</h2>
+      </div>
+      <div>
+        <input type="password" class="password" placeholder="password">
+        <h2 class="passReqLog inactive">Password required with 6 characters or more</h2>
+      </div>
+      <div>
+        <button class="log-button"><i class="fa-solid fa-check-double"></i> submit</button>
+        <h2 class="authorizingLog inactive">Authorizing....</h2>
         <h2 class="incorrect inactive">Incorrect password ❌</h2>
         <h2 class="not-found inactive">User not found ❓</h2>
       </div>
@@ -24,80 +47,35 @@
     <button class="in-log">sign up</button>
 
     <div class="sign inactive">
-      <h1>Create your account</h1>
-      <input type="text" class="username" placeholder="user">
-      <input type="text" class="password" placeholder="password">
-      <button class="sign-button">submit</button>
+      <h1><span>Create</span> your account</h1>
+      <div>
+        <input type="email" required class="username" placeholder="email">
+        <h2 class="emailReqSign inactive">Email required with '@' included</h2>
+      </div>
+      <div>
+        <input type="password" required class="password" placeholder="password">
+        <h2 class="passReqSign inactive">Password required with 6 characters or more</h2>
+      </div>
+      <div>
+        <button class="sign-button"><i class="fa-solid fa-check-double"></i> submit</button>
+        <h2 class="authorizingSign inactive">Authorizing....</h2>
+        <h2 class="exist inactive">User name already exist ‼️</h2>
+      </div>
     </div>
     <button class="in-sign inactive">log in</button>
   </div>
-  <script>
-    let inSignBtn = document.querySelector('.in-sign')
-    let inLogBtn = document.querySelector('.in-log')
 
-    let signState = document.querySelector('.sign')
-    let logState = document.querySelector('.login')
+  <footer>
+    <div class="copy-developed">
+      <span class="span-bra">&lt;</span> Developed by <span class="span-bra">&gt;</span><a
+        href="https://www.facebook.com/share/19NwWuipP6/?mibextid=wwXIfr" target="_blank"
+        rel="noopener noreferrer">Yousef</a><span class="span-dis"><br></span><span class="span-bra">&lt;</span> All
+      Copy Rights Reserved ©2025 <span class="span-bra">&gt;</span>
+    </div>
+  </footer>
 
-    inSignBtn.addEventListener("click", () => {
-      signState.classList.add('inactive')
-      logState.classList.remove('inactive')
-      inSignBtn.classList.add('inactive')
-      inLogBtn.classList.remove('inactive')
-    })
-
-    inLogBtn.addEventListener("click", () => {
-      signState.classList.remove('inactive')
-      logState.classList.add('inactive')
-      inLogBtn.classList.add('inactive')
-      inSignBtn.classList.remove('inactive')
-    })
-
-    let logButton = document.querySelector('.log-button')
-    let signButton = document.querySelector('.sign-button')
-    let usernameSign = document.querySelector('.sign .username')
-    let passwordSign = document.querySelector('.sign .password')
-    let usernameLog = document.querySelector('.login .username')
-    let passwordLog = document.querySelector('.login .password')
-    let incorrect = document.querySelector('.auth .incorrect')
-    let notFound = document.querySelector('.auth .not-found')
-
-    logButton.addEventListener('click', async () => {
-      const username = usernameLog.value
-      const password = passwordLog.value
-
-      try {
-        const response = await fetch('/auth/log', {
-          method: 'POST',
-          headers: {
-            'Content-type': 'application/json'
-          },
-          body: JSON.stringify({ username, password })
-        })
-
-        if (!response.ok) {
-          throw new Error('Login failed: ' + response.statusText);
-        }
-
-        const data = await response.json()
-        console.log(data, "100%")
-
-        if (data === "ok") {
-          window.location.replace("/dashboard")
-          return;
-        } if (data === "incorrect") {
-          incorrect.classList.remove("inactive")
-          notFound.classList.add("inactive")
-        } else {
-          notFound.classList.remove("inactive")
-          incorrect.classList.add("inactive")
-        }
-
-      } catch (err) {
-        console.log("Error:", err)
-      }
-    })
-
-  </script>
+  <script src="js/all.min.js"></script>
+  <script src="js/main.js"></script>
 </body>
 
 </html>
